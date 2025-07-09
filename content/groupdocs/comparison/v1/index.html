@@ -1,0 +1,312 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T42TVBC');</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8" />
+    <title>GroupDocs.Comparison Cloud - API References</title>
+    <link href="https://www.groupdocs.cloud/templates/groupdocscloud/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+
+    <link href='css/typography.css' media='screen' rel='stylesheet' type='text/css' />
+    <link href='css/reset.css' media='screen' rel='stylesheet' type='text/css' />
+    <link href='css/screen.css' media='screen' rel='stylesheet' type='text/css' />
+    <link href='css/reset.css' media='print' rel='stylesheet' type='text/css' />
+    <link href='css/print.css' media='print' rel='stylesheet' type='text/css' />
+    <link href='css/screen.css' media='print' rel='stylesheet' type='text/css' />
+
+    <script src='lib/shred.bundle.js' type='text/javascript'></script>
+    <script src='lib/object-assign-pollyfill.js' type='text/javascript'></script>
+    <script src='lib/jquery-1.8.0.min.js' type='text/javascript'></script>
+    <script src='lib/jquery.slideto.min.js' type='text/javascript'></script>
+    <script src='lib/jquery.wiggle.min.js' type='text/javascript'></script>
+    <script src='lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
+    <script src='lib//handlebars-2.0.0.js' type='text/javascript'></script>
+
+    <script src='lib/lodash.min.js' type='text/javascript'></script>
+    <script src='lib/backbone-min.js' type='text/javascript'></script>
+    <script src='lib/swagger-client.js' type='text/javascript'></script>
+    <script src='lib/swagger-ui.js' type='text/javascript'></script>
+    <script src='lib/highlight.9.1.0.pack.js' type='text/javascript'></script>
+    <script src='lib/highlight.9.1.0.pack_extended.js' type='text/javascript'></script>
+    <script src='lib/marked.js' type='text/javascript'></script>
+    <script src='lib/jsoneditor.min.js' type='text/javascript'></script>
+
+    <!-- custom -->
+    <script src='lib/jssha.js' type='text/javascript'></script>
+
+    <!-- enabling this will enable oauth2 implicit scope support
+    <script src='lib/swagger-oauth.js' type='text/javascript'></script>
+    -->
+
+  <script src="https://menu.containerize.com/Scripts/Containerize.Menu.min.js"></script>
+<link href="https://cms.admin.containerize.com/templates/aspose/css/AsposePtyLtdMenu.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cms.admin.containerize.com/templates/groupdocs/css/groupdocs.css" type="text/css"/>
+<link rel="stylesheet" href="https://cms.admin.containerize.com/templates/aspose/css/font-awesome.css" type="text/css" />
+    
+    <style type="text/css">
+        /* Custom Header Section */
+        #api_selector .input span {
+            color: #FFFFFF !important;
+            font-family: Arial, Helvetica, sans-serif !important;
+            font-size: 14px
+        }
+
+        #api_selector .input input {
+            color: #666;
+            font-size: 13px !important;
+            border: 0;
+            padding: 5px !important;
+            box-sizing: border-box;
+            min-width: 260px;
+            margin: 5px !important
+        }
+
+        .swagger-section #header {
+            margin-top: 60px;
+            background: #006bb0;
+            position: static
+        }
+
+        .container {
+            min-height: 150px;
+            max-width: 1170px;
+            margin: 0 auto !important;
+            padding: 0 20px 50px
+        }
+
+        .sidkey {
+            display: table;
+            margin: 5px auto;
+        }
+
+        .swagger-section #header, .swagger-section #message-bar, .container, .swagger-section .swagger-ui-wrap ol, .swagger-section .swagger-ui-wrap ul {
+            box-sizing: border-box;
+        }
+
+        .swagger-section #header {
+            height: inherit;
+        }
+
+        @media (max-width:920px) {
+            .swagger-section .swagger-ui-wrap .info_title {
+                padding: 0 15px 5px !important;
+            }
+            .swagger-section .swagger-ui-wrap ul#resources li.resource div.heading ul.options {
+                margin-right: 0 !important
+            }
+            #api_selector .input span i {
+                display: none !important;
+            }
+            .swagger-section #header, .swagger-section #message-bar, .container, .swagger-section .swagger-ui-wrap ol, .swagger-section .swagger-ui-wrap ul {
+                width: 100%;
+                min-width: 100% !important;
+                max-width: 100% !important;
+            }
+            .sidkey #api_selector {
+                float: none;
+                display: table;
+                width: 100%;
+                clear: both;
+                text-align: center;
+            }
+            .sidkey span, .sidkey input {
+                margin-bottom: 10px !important;
+                display: block;
+                clear: both;
+                width: 100% !important;
+            }
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(function () {
+            // sign authentication
+            function addSignAuth() {
+                var CustomRequestSigner = function (name) {
+                    console.log("signing");
+                    this.name = name;
+                };
+
+                function utf8_from_str(s) {
+                    for (var i = 0, enc = encodeURIComponent(s), a = []; i < enc.length;) {
+                        if (enc[i] === '%') {
+                            a.push(parseInt(enc.substr(i + 1, 2), 16))
+                            i += 3
+                        } else {
+                            a.push(enc.charCodeAt(i++))
+                        }
+                    }
+                    return a
+                }
+                CustomRequestSigner.prototype.apply = function (obj, authorizations) {
+                    var hashFunction = this._btoa;
+
+                    var methodUrl = obj.url;
+                    methodUrl = methodUrl.replace(/\s/g, '%20');
+
+                    //methodUrl = utf8_from_str(methodUrl);
+
+                    console.log("methodUrl: >>>" + methodUrl);
+
+                    var appKey = $('#input_appKey')[0].value;
+                    var shaObj = new jsSHA(methodUrl, "TEXT");
+                     var signature = shaObj.getHMAC(appKey, "TEXT", "SHA-1", "B64").replace(/=/g, '');
+                    signature = encodeURIComponent(signature)
+                    console.log("signature: >>>" + signature);
+
+                    if (obj.url.slice(-1) == '/' || obj.url.indexOf('?') < 0) {
+                        obj.url = obj.url + '?signature=' + signature;
+                    } else {
+                        obj.url = obj.url + '&signature=' + signature;
+                    }
+
+                    //obj.headers["signature"] = signature;
+
+                    return true;
+                };
+
+                window.authorizations.add('signature', new CustomRequestSigner());
+                console.log("signature auth added.");
+            }
+
+            var url = window.location.search.match(/url=([^&]+)/);
+            if (url && url.length > 1) {
+                url = decodeURIComponent(url[1]);
+            } else {
+                url = "https://api.groupdocs.cloud/v1.0/comparison/swagger/spec";
+            }
+
+            window.swaggerUi = new SwaggerUi({
+                url: url,
+                dom_id: "swagger-ui-container",
+                supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
+                onComplete: function (swaggerApi, swaggerUi) {
+                    if (typeof initOAuth == "function") {
+                        /* initOAuth({
+                          clientId: "your-client-id",
+                          realm: "your-realms",
+                          appName: "your-app-name"
+                        }); */
+                    }
+                    $('pre code').each(function (i, e) {
+                        hljs.highlightBlock(e)
+                    });
+
+                    addApiKeyAuthorization();
+                    addSignAuth();
+                },
+                onFailure: function (data) {
+                    log("Unable to Load SwaggerUI");
+                },
+                docExpansion: "none",
+                sorter: "alpha"
+            });
+
+            function addApiKeyAuthorization() {
+                var sidkey = encodeURIComponent($('#input_appSID')[0].value);
+                if (sidkey && sidkey.trim() != "") {
+                    window.authorizations.add("appsid", new ApiKeyAuthorization("appsid", sidkey, "query"));
+                    log("added SID Key " + sidkey);
+                }
+            }
+
+            $('#input_appSID').change(function () {
+                appSID = $('#input_appSID')[0].value;
+                if (appSID && appSID.trim() !== '') {
+                    // Save this appSID to localStorage if we can to make it persist on refresh.
+                    window.localStorage && window.localStorage.setItem(lsSIDKey, appSID);
+                    addApiKeyAuthorization();
+                }
+                else {
+                    window.localStorage && window.localStorage.removeItem(lsSIDKey);
+                }
+            });
+
+
+            $('#input_appKey').change(function () {
+                appKey = $('#input_appKey')[0].value;
+                if (appKey && appKey.trim() !== '') {
+                    // Save this appKey to localStorage if we can to make it persist on refresh.
+                    window.localStorage && window.localStorage.setItem(lsAPPKey, appKey);
+                }
+                else {
+                    window.localStorage && window.localStorage.removeItem(lsAPPKey);
+                }
+            });
+
+            // if you have an apiKey you would like to pre-populate on the page demonstration purposes...
+            var lsSIDKey = '__GROUPDOCS-SID__';
+            var lsAPPKey = '__GROUPDOCS-APP__';
+
+            // Recover appSID from localStorage if present.
+            var appSID = "XXXX";
+
+            if (window.localStorage && window.localStorage.getItem(lsSIDKey)) {
+                appSID = window.localStorage.getItem(lsSIDKey);
+                $('#input_appSID').val(appSID);
+            } else {
+                $('#input_appSID').val(appSID);
+				$('#api-key-msg').show();
+            }
+
+
+            // Recover appKey from localStorage if present.
+            var appKey = "XXXX";
+            if (window.localStorage && window.localStorage.getItem(lsAPPKey)) {
+                appKey = window.localStorage.getItem(lsAPPKey);
+                $('#input_appKey').val(appKey);
+            } else {
+                $('#input_appKey').val(appKey);
+				$('#api-key-msg').show();
+            }
+
+            window.swaggerUi.load();
+        });
+    </script>
+</head>
+
+<body class="swagger-section">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T42TVBC"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div id='DynabicMenuInnerDiv'></div>
+    <div id="header">
+        <div class="sidkey">
+            <form id="api_selector">
+                <div class="input" style="vertical-align: middle;">
+                    <span>
+                        Please Enter Your App SID and App key <i class="fa fa-long-arrow-right"> </i>
+                    </span>
+                    <input placeholder="App SID" id="input_appSID" name="input_appSID" type="text" />
+                    <input placeholder="App key" id="input_appKey" name="input_appKey" type="text" />
+					<p id="api-key-msg" style="display:none">
+					 <span>
+                        Don't have App SID and App key? Create your own in <a style="color: #FFFFFF;text-decoration: underline!important;" target="_blank" href="https://dashboard.groupdocs.cloud/#/apps" >Dashboard</a>
+                    </span>
+					</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="message-bar" class="swagger-ui-wrap"></div>
+    <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+
+    <div id='DynabicMenuFooter'></div>
+
+    <script>
+        LoadMenu("GroupDocsCloud");
+    </script>
+
+</body>
+</html>

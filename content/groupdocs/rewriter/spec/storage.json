@@ -1,0 +1,1038 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Aspose.Storage for Cloud API Reference",
+    "version": "1.1"
+  },
+  "host": "api-qa.aspose.cloud",
+  "basePath": "/v1.1",
+  "schemes": [],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/storage/file": {
+      "put": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Upload a specific file ",
+        "operationId": "PutCreate",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "path",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext"
+          },
+          {
+            "type": "string",
+            "name": "versionId",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Source file's version"
+          },
+          {
+            "type": "string",
+            "name": "storage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's storage name"
+          },
+          {
+            "type": "file",
+            "name": "File",
+            "in": "formData",
+            "required": true,
+            "description": "File to upload"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result.",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authentication failed!",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          }
+        },
+"security": [
+          {
+            "oauth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Download a specific file ",
+        "operationId": "GetDownload",
+        "produces": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "path",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Path of the file including the file name and extension e.g. /file.ext"
+          },
+          {
+            "type": "string",
+            "name": "versionId",
+            "in": "query",
+            "x-nullable": true,
+            "description": "File's version"
+          },
+          {
+            "type": "string",
+            "name": "storage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's storage name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result.",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authentication failed!",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "404": {
+            "description": "The specified key does not exist. Please check the file path provided.",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          }
+        },
+	"security": [
+          {
+            "oauth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Move a specific file ",
+        "operationId": "PostMoveFile",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "src",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Source file path e.g. /fileSource.ext"
+          },
+          {
+            "type": "string",
+            "name": "dest",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Destination file path e.g. /fileDestination.ext"
+          },
+          {
+            "type": "string",
+            "name": "versionId",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Source file's version,"
+          },
+          {
+            "type": "string",
+            "name": "storage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's source storage name"
+          },
+          {
+            "type": "string",
+            "name": "destStorage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's destination storage name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result.",
+            "schema": {
+              "$ref": "#/definitions/MoveFileResponse"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authentication failed!",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "404": {
+            "description": "The specified key does not exist. Please check the file path parameters: src and dest.",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          }
+        },
+"security": [
+          {
+            "oauth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Remove a specific file ",
+        "operationId": "DeleteFile",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "path",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Path of the file including file name and extension e.g. /Folder1/file.ext"
+          },
+          {
+            "type": "string",
+            "name": "versionId",
+            "in": "query",
+            "x-nullable": true,
+            "description": "File's version"
+          },
+          {
+            "type": "string",
+            "name": "storage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's storage name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result.",
+            "schema": {
+              "$ref": "#/definitions/RemoveFileResponse"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authentication failed!",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          }
+        },
+"security": [
+          {
+            "oauth": []
+          }
+        ]
+      }
+    },
+    "/storage/folder": {
+      "get": {
+        "tags": [
+          "Folder"
+        ],
+        "summary": "Get the file listing of a specific folder ",
+        "operationId": "GetListFiles",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "path",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Start with name of storage e.g. root folder '/'or some folder '/folder1/..'",
+            "default": "/"
+          },
+          {
+            "type": "string",
+            "name": "storage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's storage name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result.",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authentication failed!",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "404": {
+            "description": "Folder not found. Please check the path provided.",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          }
+        },
+"security": [
+          {
+            "oauth": []
+          }
+        ]
+
+      },
+      "put": {
+        "tags": [
+          "Folder"
+        ],
+        "summary": "Create the folder ",
+        "operationId": "PutCreateFolder",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "path",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively"
+          },
+          {
+            "type": "string",
+            "name": "storage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's source storage name"
+          },
+          {
+            "type": "string",
+            "name": "destStorage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's destination storage name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result.",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authentication failed!",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "The specified storage was not found or is not associated with the application.Please check storage parameter.",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          }
+        },
+"security": [
+          {
+            "oauth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Folder"
+        ],
+        "summary": "Move a specific folder ",
+        "operationId": "PostMoveFolder",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "src",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Source folder path e.g. /Folder1"
+          },
+          {
+            "type": "string",
+            "name": "dest",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Destination folder path e.g. /Folder2"
+          },
+          {
+            "type": "string",
+            "name": "storage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's source storage name"
+          },
+          {
+            "type": "string",
+            "name": "destStorage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's destination storage name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result.",
+            "schema": {
+              "$ref": "#/definitions/MoveFolderResponse"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authentication failed!",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          }
+        },
+"security": [
+          {
+            "oauth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Folder"
+        ],
+        "summary": "Remove a specific folder ",
+        "operationId": "DeleteFolder",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "path",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Folder path e.g. /Folder1"
+          },
+          {
+            "type": "string",
+            "name": "storage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's storage name"
+          },
+          {
+            "type": "boolean",
+            "name": "recursive",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Remove recursivelly inner folder/files. If false and folder contains data than exception is raised.",
+            "default": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result.",
+            "schema": {
+              "$ref": "#/definitions/RemoveFolderResponse"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authentication failed!",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          }
+        },
+"security": [
+          {
+            "oauth": []
+          }
+        ]
+      }
+    },
+    "/storage/{name}/exist": {
+      "get": {
+        "tags": [
+          "Storage"
+        ],
+        "summary": "Check if storage exists ",
+        "operationId": "GetIsStorageExist",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "Storage name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result.",
+            "schema": {
+              "$ref": "#/definitions/StorageExistResponse"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authentication failed!",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          }
+        },
+"security": [
+          {
+            "oauth": []
+          }
+        ]
+      }
+    },
+    "/storage/exist": {
+      "get": {
+        "tags": [
+          "Storage"
+        ],
+        "summary": "Check if a specific file or folder exists",
+        "operationId": "GetIsExist",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "path",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "File or folder path e.g. /file.ext or /Folder1"
+          },
+          {
+            "type": "string",
+            "name": "versionId",
+            "in": "query",
+            "x-nullable": true,
+            "description": "File's version"
+          },
+          {
+            "type": "string",
+            "name": "storage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's storage name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result.",
+            "schema": {
+              "$ref": "#/definitions/FileExistResponse"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authentication failed!",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          }
+        },
+"security": [
+          {
+            "oauth": []
+          }
+        ]
+      }
+    },
+    "/storage/disc": {
+      "get": {
+        "tags": [
+          "Storage"
+        ],
+        "summary": "Check the disk usage of the current account ",
+        "operationId": "GetDiscUsage",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "storage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's storage name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result.",
+            "schema": {
+              "$ref": "#/definitions/DiscUsageResponse"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "The specified storage was not found or is not associated with the application.",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authentication failed!",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          }
+        },
+"security": [
+          {
+            "oauth": []
+          }
+        ]
+      }
+    },
+    "/storage/version": {
+      "get": {
+        "tags": [
+          "Storage"
+        ],
+        "summary": "Get the file's versions list ",
+        "operationId": "GetListFileVersions",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "path",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "File path e.g. /file.ext or /Folder1/file.ext"
+          },
+          {
+            "type": "string",
+            "name": "storage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "User's storage name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the result.",
+            "schema": {
+              "$ref": "#/definitions/FileVersionsResponse"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authentication failed!",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          }
+        },
+"security": [
+          {
+            "oauth": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "MoveFileResponse": {
+      "type": "null",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/SaaSposeResponse"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "SaaSposeResponse": {
+      "type": "object",
+      "discriminator": "Type",
+      "additionalProperties": false,
+      "required": [
+        "Code"
+      ],
+      "properties": {
+        "Code": {
+          "enum": [
+            "Continue",
+            "SwitchingProtocols",
+            "OK",
+            "Created",
+            "Accepted",
+            "NonAuthoritativeInformation",
+            "NoContent",
+            "ResetContent",
+            "PartialContent",
+            "MultipleChoices",
+            "Ambiguous",
+            "MovedPermanently",
+            "Moved",
+            "Found",
+            "Redirect",
+            "SeeOther",
+            "RedirectMethod",
+            "NotModified",
+            "UseProxy",
+            "Unused",
+            "TemporaryRedirect",
+            "RedirectKeepVerb",
+            "BadRequest",
+            "Unauthorized",
+            "PaymentRequired",
+            "Forbidden",
+            "NotFound",
+            "MethodNotAllowed",
+            "NotAcceptable",
+            "ProxyAuthenticationRequired",
+            "RequestTimeout",
+            "Conflict",
+            "Gone",
+            "LengthRequired",
+            "PreconditionFailed",
+            "RequestEntityTooLarge",
+            "RequestUriTooLong",
+            "UnsupportedMediaType",
+            "RequestedRangeNotSatisfiable",
+            "ExpectationFailed",
+            "UpgradeRequired",
+            "InternalServerError",
+            "NotImplemented",
+            "BadGateway",
+            "ServiceUnavailable",
+            "GatewayTimeout",
+            "HttpVersionNotSupported"
+          ]
+        },
+        "Status": {
+          "type": "string"
+        }
+      }
+    },
+    "RemoveFileResponse": {
+      "type": "null",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/SaaSposeResponse"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "MoveFolderResponse": {
+      "type": "null",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/SaaSposeResponse2"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "SaaSposeResponse2": {
+      "type": "object",
+      "discriminator": "Type",
+      "additionalProperties": false,
+      "required": [
+        "Code"
+      ],
+      "properties": {
+        "Code": {
+          "enum": [
+            "Continue",
+            "SwitchingProtocols",
+            "OK",
+            "Created",
+            "Accepted",
+            "NonAuthoritativeInformation",
+            "NoContent",
+            "ResetContent",
+            "PartialContent",
+            "MultipleChoices",
+            "Ambiguous",
+            "MovedPermanently",
+            "Moved",
+            "Found",
+            "Redirect",
+            "SeeOther",
+            "RedirectMethod",
+            "NotModified",
+            "UseProxy",
+            "Unused",
+            "TemporaryRedirect",
+            "RedirectKeepVerb",
+            "BadRequest",
+            "Unauthorized",
+            "PaymentRequired",
+            "Forbidden",
+            "NotFound",
+            "MethodNotAllowed",
+            "NotAcceptable",
+            "ProxyAuthenticationRequired",
+            "RequestTimeout",
+            "Conflict",
+            "Gone",
+            "LengthRequired",
+            "PreconditionFailed",
+            "RequestEntityTooLarge",
+            "RequestUriTooLong",
+            "UnsupportedMediaType",
+            "RequestedRangeNotSatisfiable",
+            "ExpectationFailed",
+            "UpgradeRequired",
+            "InternalServerError",
+            "NotImplemented",
+            "BadGateway",
+            "ServiceUnavailable",
+            "GatewayTimeout",
+            "HttpVersionNotSupported"
+          ]
+        },
+        "Status": {
+          "type": "string"
+        }
+      }
+    },
+    "RemoveFolderResponse": {
+      "type": "null",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/SaaSposeResponse2"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "StorageExistResponse": {
+      "type": "null",
+      "additionalProperties": false,
+      "required": [
+        "IsExist"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/SaaSposeResponse"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "IsExist": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "FileExistResponse": {
+      "type": "null",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/SaaSposeResponse"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "FileExist": {
+              "$ref": "#/definitions/FileExist"
+            }
+          }
+        }
+      ]
+    },
+    "FileExist": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "IsExist",
+        "IsFolder"
+      ],
+      "properties": {
+        "IsExist": {
+          "type": "boolean"
+        },
+        "IsFolder": {
+          "type": "boolean"
+        }
+      }
+    },
+    "DiscUsageResponse": {
+      "type": "null",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/SaaSposeResponse"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "DiscUsage": {
+              "$ref": "#/definitions/DiscUsage"
+            }
+          }
+        }
+      ]
+    },
+    "DiscUsage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "UsedSize",
+        "TotalSize"
+      ],
+      "properties": {
+        "UsedSize": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "TotalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "FileVersionsResponse": {
+      "type": "null",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/SaaSposeResponse"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "FileVersions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FileVersion"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "FileVersion": {
+      "type": "null",
+      "additionalProperties": false,
+      "required": [
+        "IsLatest"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/File"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "VersionId": {
+              "type": "string"
+            },
+            "IsLatest": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "File": {
+      "type": "object",
+      "discriminator": "Type",
+      "additionalProperties": false,
+      "required": [
+        "IsFolder",
+        "ModifiedDate",
+        "Size",
+        "IsDirectory"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "IsFolder": {
+          "type": "boolean"
+        },
+        "ModifiedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Path": {
+          "type": "string"
+        },
+        "IsDirectory": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "oauth": {
+      "type": "oauth2",
+      "flow": "application",
+      "tokenUrl": "https://api-qa.aspose.cloud/oauth2/token"
+    }
+  }
+}

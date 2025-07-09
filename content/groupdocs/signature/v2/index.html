@@ -1,0 +1,213 @@
+
+
+
+
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>GroupDocs.Signature for Cloud - API References</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" >
+    <link href="https://cms.admin.containerize.com/templates/groupdocscloud/favicon.ico?v1.0" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    <style>
+      html
+      {
+        box-sizing: border-box;
+        overflow: -moz-scrollbars-vertical;
+        overflow-y: scroll;
+      }
+
+      *,
+      *:before,
+      *:after
+      {
+        box-sizing: inherit;
+      }
+
+      body
+      {
+        margin:0;
+        background: #fafafa;
+      }
+    </style>
+<!-- Dynabic.Menu CSS -->
+<link rel="stylesheet" href="https://cms.admin.containerize.com/templates/aspose/css/AsposePtyLtdMenu.css?v2.1" type="text/css" />
+
+<link href="https://cms.admin.containerize.com/templates/aspose/css/groupdocs.css" rel="stylesheet" type="text/css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://menu.dynabic.com/Scripts/Dynabic.Menu.min.js"></script>		
+
+<link rel="stylesheet" href="/classification/css/screen.css" type="text/css" />
+
+<style type="text/css">
+
+/* Custom Header Section */
+#api_selector .input span{ 
+	color:#FFFFFF!important; 
+	font-family: Arial, Helvetica, sans-serif!important; 
+	font-size:14px
+}
+#api_selector .input input{
+	color: #666;
+    font-size: 13px!important;
+    border: 0;
+    padding: 5px!important;
+    box-sizing: border-box;
+    min-width: 260px;
+	margin:5px!important
+}
+.swagger-section #header {
+	margin-top: 60px;
+	background: #006bb0;
+	position: static
+}
+.container {
+	min-height: 150px;
+	max-width: 1170px;
+	margin: 0 auto!important;
+	padding: 0 20px 50px
+}
+.sidkey {
+	display: table;
+	margin: 5px auto;
+}
+.swagger-section #header,.swagger-section #message-bar,.container,.swagger-section .swagger-ui-wrap ol, .swagger-section .swagger-ui-wrap ul{
+    box-sizing: border-box;
+}
+.swagger-section #header{		height:inherit;	}
+@media (max-width:920px) {
+
+.swagger-section .swagger-ui-wrap .info_title{
+		padding:0 15px 5px!important;
+}
+.swagger-section .swagger-ui-wrap ul#resources li.resource div.heading ul.options{
+	margin-right:0!important}
+
+
+#api_selector .input span i{ display:none!important;}
+.swagger-section #header,.swagger-section #message-bar,.container,.swagger-section .swagger-ui-wrap ol, .swagger-section .swagger-ui-wrap ul{
+	width: 100%;
+    min-width: 100%!important;
+    max-width: 100%!important;
+}
+.sidkey #api_selector {
+	float: none;
+	display: table;
+	width: 100%;
+	clear: both;
+	text-align: center;
+}
+.sidkey span, .sidkey input {
+	margin-bottom: 10px!important;
+	display: block;
+	clear: both;
+	width: 100%!important;
+}
+}
+
+</style>
+  </head>
+
+  <body class='swagger-section'>
+<script src="https://www.consentise.com/v1.2/consent-min.js" 
+    data-cookiedomain=".groupdocs.cloud" 
+    data-privacy-policy-url="https://about.groupdocs.cloud/legal/privacy-policy" 
+    data-preferred-color="#4FA5D3"
+    data-default-language="en"
+    defer>
+</script>
+<div id='DynabicMenuInnerDiv'></div>
+<div id="header"></div>
+
+    <div id="swagger-ui"></div>
+   <div id='DynabicMenuFooter'></div>
+<script>
+LoadMenu("GroupDocsCloud");
+</script>
+
+    <script src="./swagger-ui-bundle.js"> </script>
+    <script src="./swagger-ui-standalone-preset.js"> </script>
+     <script>
+   $(function () {
+ 
+ function HideTopbarPlugin() {
+  // this plugin overrides the Topbar component to return nothing
+  return {
+    components: {
+      Topbar: function() { return null }
+    }
+  }
+}
+  // Build a system
+  const ui = SwaggerUIBundle({
+    url: "https://api.groupdocs.cloud/v2.0/signature/swagger/spec",
+    dom_id: '#swagger-ui',
+    deepLinking: true,
+    validatorUrl: null,
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIStandalonePreset
+    ],
+    plugins: [
+      SwaggerUIBundle.plugins.DownloadUrl,
+	HideTopbarPlugin
+    ],
+    layout: "StandaloneLayout"
+  })
+  
+  
+  	  
+ // if you have an apiKey you would like to pre-populate on the page for demonstration purposes...
+		var lsSIDKey = '__GROUPDOCS-SID__';
+		var lsAPPKey = '__GROUPDOCS-APP__';
+
+ if (window.localStorage && window.localStorage.getItem(lsAPPKey) && window.localStorage && window.localStorage.getItem(lsSIDKey)) {
+	ui.initOAuth({
+		clientId:  window.localStorage.getItem(lsSIDKey),
+		clientSecret:  window.localStorage.getItem(lsAPPKey),
+		scopeSeparator: " ",	
+		});
+	 }
+  	  
+  window.ui = ui
+
+	setTimeout(function () {
+		 if (window.localStorage && window.localStorage.getItem(lsAPPKey) && window.localStorage && window.localStorage.getItem(lsSIDKey) &&  window.localStorage.getItem(lsSIDKey)!== '' && window.localStorage.getItem(lsAPPKey)!== ''  ) {
+           		$(".authorization__btn").click(); $(".auth,.authorize,.button").click();
+		}
+    	}, 1000);  
+  
+});
+
+
+$(document).on('click', '.authorize.auth', function () {
+	var lsSIDKey = '__GROUPDOCS-SID__';
+	var lsAPPKey = '__GROUPDOCS-APP__';
+
+		appSID = $('#client_id')[0].value;
+		 if (appSID && appSID.trim() !== '') {
+			  // Save this appSID to localStorage if we can to make it persist on refresh.
+			  window.localStorage && window.localStorage.setItem(lsSIDKey, appSID);
+		  }
+		  else {
+			  window.localStorage && window.localStorage.removeItem(lsSIDKey);
+
+		  }
+
+		appKey = $('#client_secret')[0].value;
+		  if (appKey && appKey.trim() !== '') {
+			  // Save this appKey to localStorage if we can to make it persist on refresh.
+			  window.localStorage && window.localStorage.setItem(lsAPPKey, appKey);
+		  }
+		  else {
+			  window.localStorage && window.localStorage.removeItem(lsAPPKey);
+		  }
+
+
+});
+
+</script>
+  </body>
+</html>

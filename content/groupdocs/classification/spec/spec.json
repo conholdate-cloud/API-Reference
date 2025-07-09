@@ -1,0 +1,275 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "GroupDocs.Classification Cloud API References",
+    "version": "18.12"
+  },
+  "host": "api-qa.groupdocs.cloud",
+  "basePath": "/v1.0",
+  "schemes": [],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/classification/classify": {
+      "post": {
+        "tags": [
+          "Classification"
+        ],
+        "summary": "Classifies text or document.",
+        "operationId": "Classify",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/BaseRequest"
+            },
+            "x-nullable": true,
+            "description": "Raw text to classify or document's info."
+          },
+          {
+            "type": "string",
+            "name": "BestClassesCount",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Count of the best classes to return.",
+            "default": "1"
+          },
+          {
+            "type": "string",
+            "name": "Taxonomy",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Taxonomy to use for classification.",
+            "default": "default"
+          },
+          {
+            "type": "string",
+            "name": "PrecisionRecallBalance",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Balance between precision and recall: precision, recall or empty (for default).",
+            "default": ""
+          },
+          {
+            "type": "string",
+            "name": "Storage",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Storage name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "with classification results.",
+            "schema": {
+              "$ref": "#/definitions/ClassificationResponse"
+            },
+            "x-nullable": true
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/classification/formats": {
+      "get": {
+        "tags": [
+          "Formats"
+        ],
+        "summary": "Retrieves list of supported file formats.",
+        "operationId": "GetSupportedFileFormats",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The object with list of supported file formats.",
+            "schema": {
+              "$ref": "#/definitions/FormatCollection"
+            },
+            "x-nullable": true
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "BaseRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Raw text to classify or additional file description (for the document classification case)."
+        },
+        "document": {
+          "description": "File info about the document (for the document classification case).",
+          "$ref": "#/definitions/FileInfo"
+        }
+      },
+      "description": "BaseRequest"
+    },
+    "FileInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "folder": {
+          "type": "string",
+          "description": "Folder name"
+        },
+        "name": {
+          "type": "string",
+          "description": "File name"
+        },
+        "password": {
+          "type": "string",
+          "description": "A password for the file "
+        }
+      },
+      "description": "FileInfo dto"
+    },
+    "ClassificationResponse": {
+      "type": "null",
+      "additionalProperties": false,
+      "required": [
+        "bestClassProbability"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResponse"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bestClassName": {
+              "type": "string",
+              "description": "Best class name."
+            },
+            "bestClassProbability": {
+              "type": "number",
+              "description": "Best class probability.",
+              "format": "double"
+            },
+            "bestResults": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ClassificationResult"
+              },
+              "description": "Array of best classes results."
+            }
+          }
+        }
+      ],
+      "description": "This response should be returned by the service when handling:\nPOST /classify"
+    },
+    "ClassificationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "classProbability"
+      ],
+      "properties": {
+        "className": {
+          "type": "string",
+          "description": "Gets or sets the name of the class."
+        },
+        "classProbability": {
+          "type": "number",
+          "description": "Gets or sets the probability of class.",
+          "format": "double"
+        }
+      },
+      "description": "Represents a single classification result."
+    },
+    "BaseResponse": {
+      "type": "object",
+      "discriminator": "Type",
+      "additionalProperties": false,
+      "required": [
+        "code"
+      ],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "description": "Response status code.",
+          "format": "int32"
+        },
+        "status": {
+          "type": "string",
+          "description": "Response status."
+        }
+      },
+      "description": "Base class for all responses."
+    },
+    "FormatCollection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "formats": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Format"
+          },
+          "description": "Supported file formats."
+        }
+      },
+      "description": "Describes object which contains list of supported file formats."
+    },
+    "Format": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fileFormat": {
+          "type": "string",
+          "description": "File format."
+        },
+        "extension": {
+          "type": "string",
+          "description": "File extension."
+        }
+      },
+      "description": "Format description."
+    }
+  },
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "JWT": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "tokenUrl": "http://localhost:44327/connect/token"
+    }
+  }
+}

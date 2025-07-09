@@ -1,0 +1,247 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "GroupDocs.Classification Cloud API References",
+    "version": "18.12"
+  },
+  "host": "api-qa.groupdocs.cloud",
+  "basePath": "/v1.0",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/classification/classify": {
+      "post": {
+        "tags": [
+          "Classification"
+        ],
+        "operationId": "Classify",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "Request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/BaseRequest"
+            },
+            "x-nullable": true
+          },
+          {
+            "type": "string",
+            "name": "BestClassesCount",
+            "in": "query",
+            "x-nullable": true,
+            "default": "1"
+          },
+          {
+            "type": "string",
+            "name": "Taxonomy",
+            "in": "query",
+            "x-nullable": true,
+            "default": "default"
+          },
+          {
+            "type": "string",
+            "name": "PrecisionRecallBalance",
+            "in": "query",
+            "x-nullable": true,
+            "default": ""
+          },
+          {
+            "type": "string",
+            "name": "Storage",
+            "in": "query",
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ClassificationResponse"
+            },
+            "x-nullable": true
+          }
+        },
+        "security": [
+          {
+            "oauth": []
+          }
+        ]
+      }
+    },
+    "/classification/formats": {
+      "get": {
+        "tags": [
+          "Formats"
+        ],
+        "operationId": "GetSupportedFileFormats",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/FormatCollection"
+            },
+            "x-nullable": true
+          }
+        },
+        "security": [
+          {
+            "oauth": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "BaseRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "document": {
+          "$ref": "#/definitions/FileInfo"
+        }
+      }
+    },
+    "FileInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "folder": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "ClassificationResponse": {
+      "type": "null",
+      "additionalProperties": false,
+      "required": [
+        "bestClassProbability"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResponse"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "bestClassName": {
+              "type": "string"
+            },
+            "bestClassProbability": {
+              "type": "number",
+              "format": "double"
+            },
+            "bestResults": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ClassificationResult"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ClassificationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "classProbability"
+      ],
+      "properties": {
+        "className": {
+          "type": "string"
+        },
+        "classProbability": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "BaseResponse": {
+      "type": "object",
+      "discriminator": "Type",
+      "additionalProperties": false,
+      "required": [
+        "code"
+      ],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "FormatCollection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "formats": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Format"
+          }
+        }
+      }
+    },
+    "Format": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fileFormat": {
+          "type": "string"
+        },
+        "extension": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "oauth": {
+      "type": "oauth2",
+      "flow": "application",
+      "tokenUrl": "https://api-qa.groupdocs.cloud/connect/token"
+    }
+  }
+}

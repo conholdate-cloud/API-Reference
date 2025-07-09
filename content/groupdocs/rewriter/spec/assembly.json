@@ -1,0 +1,1022 @@
+{
+  "x-generator": "NSwag v11.0.0.0 (NJsonSchema v9.1.11.0)",
+  "swagger": "2.0",
+  "info": {
+    "title": "GroupDocs.Assembly Cloud API Reference",
+    "version": "20.6"
+  },
+  "host": "api.groupdocs.cloud",
+  "basePath": "/v1.0",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/assembly/formats": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "Retrieves list of supported file formats.",
+        "operationId": "GetSupportedFileFormats",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The object with list of supported file formats.",
+            "schema": {
+              "$ref": "#/definitions/FileFormatsResponse"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Something wrong with request parameters. Check response message to get more information."
+          },
+          "401": {
+            "description": "Authentication failed!"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "x-operationId": "GetSupportedFileFormats"
+      }
+    },
+    "/assembly/assemble": {
+      "post": {
+        "tags": [
+          "Assembly"
+        ],
+        "summary": "Builds a document using document template and XML or JSON data passed in request.",
+        "operationId": "AssembleDocument",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "assembleOptions",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssembleOptions"
+            },
+            "x-nullable": true,
+            "description": "Assemble Options. It should be JSON or XML with TemplateFileInfo, SaveFormat, ReportData and etc.\n            "
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Built document.",
+            "schema": {
+              "type": "file",
+              "description": "The file.",
+              "default": true
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Something wrong with request parameters. Check response message to get more information."
+          },
+          "401": {
+            "description": "Authentication failed!"
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "x-operationId": "AssembleDocument",
+        "x-binary-result": "true"
+      }
+    },
+    "/assembly/storage/file/{path}": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Download file",
+        "operationId": "DownloadFile",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "storageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Storage name"
+          },
+          {
+            "type": "string",
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "description": "Path of the file including the file name and extension e.g. /folder1/file.ext"
+          },
+          {
+            "type": "string",
+            "name": "versionId",
+            "in": "query",
+            "x-nullable": true,
+            "description": "File version ID to download"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The raw data of the file.",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authorization token is invalid or expired."
+          },
+          "404": {
+            "description": "File for given path not found."
+          },
+          "400": {
+            "description": "Something wrong with request parameters. Check response message to get more information."
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "x-operationId": "DownloadFile",
+        "x-binary-result": "true"
+      },
+      "put": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Upload file",
+        "operationId": "UploadFile",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "type": "file",
+            "name": "FileContent",
+            "in": "formData",
+            "required": true,
+            "description": "File to upload"
+          },
+          {
+            "type": "string",
+            "name": "storageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Storage name"
+          },
+          {
+            "type": "string",
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "description": "Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext\r\n            If the content is multipart and path does not contains the file name it tries to get them from filename parameter\r\n            from Content-Disposition header."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Empty error list if the upload is successful.",
+            "schema": {
+              "$ref": "#/definitions/FilesUploadResult"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authorization token is invalid or expired."
+          },
+          "400": {
+            "description": "Something wrong with request parameters. Check response message to get more information."
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "x-operationId": "UploadFile"
+      },
+      "delete": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Delete file",
+        "operationId": "DeleteFile",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "storageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Storage name"
+          },
+          {
+            "type": "string",
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "description": "Path of the file including file name and extension e.g. /Folder1/file.ext"
+          },
+          {
+            "type": "string",
+            "name": "versionId",
+            "in": "query",
+            "x-nullable": true,
+            "description": "File version ID to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns 200 if the delete is successful."
+          },
+          "401": {
+            "description": "Authorization token is invalid or expired"
+          },
+          "400": {
+            "description": "Something wrong with request parameters. Check response message to get more information."
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "x-operationId": "DeleteFile"
+      }
+    },
+    "/assembly/storage/file/copy/{srcPath}": {
+      "put": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Copy file",
+        "operationId": "CopyFile",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "destPath",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Destination file path"
+          },
+          {
+            "type": "string",
+            "name": "srcPath",
+            "in": "path",
+            "required": true,
+            "description": "Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'"
+          },
+          {
+            "type": "string",
+            "name": "srcStorageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Source storage name"
+          },
+          {
+            "type": "string",
+            "name": "destStorageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Destination storage name"
+          },
+          {
+            "type": "string",
+            "name": "versionId",
+            "in": "query",
+            "x-nullable": true,
+            "description": "File version ID to copy"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns 200 if the copy is successful."
+          },
+          "401": {
+            "description": "Authorization token is invalid or expired."
+          },
+          "400": {
+            "description": "Something wrong with request parameters. Check response message to get more information."
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "x-operationId": "CopyFile"
+      }
+    },
+    "/assembly/storage/file/move/{srcPath}": {
+      "put": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Move file",
+        "operationId": "MoveFile",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "destPath",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Destination file path e.g. '/dest.ext'"
+          },
+          {
+            "type": "string",
+            "name": "srcPath",
+            "in": "path",
+            "required": true,
+            "description": "Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'"
+          },
+          {
+            "type": "string",
+            "name": "srcStorageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Source storage name"
+          },
+          {
+            "type": "string",
+            "name": "destStorageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Destination storage name"
+          },
+          {
+            "type": "string",
+            "name": "versionId",
+            "in": "query",
+            "x-nullable": true,
+            "description": "File version ID to move"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns 200 if the move is successful."
+          },
+          "401": {
+            "description": "Authorization token is invalid or expired."
+          },
+          "404": {
+            "description": "File for given path not found."
+          },
+          "400": {
+            "description": "Something wrong with request parameters. Check response message to get more information."
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "x-operationId": "MoveFile"
+      }
+    },
+    "/assembly/storage/folder/{path}": {
+      "get": {
+        "tags": [
+          "Folder"
+        ],
+        "summary": "Get all files and folders within a folder",
+        "operationId": "GetFilesList",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "storageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Storage name"
+          },
+          {
+            "type": "string",
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "description": "Folder path e.g. /Folder1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns all files and folders contained by the folder.",
+            "schema": {
+              "$ref": "#/definitions/FilesList"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Authorization token is invalid or expired."
+          },
+          "404": {
+            "description": "Can't find folder for given path."
+          },
+          "400": {
+            "description": "Something wrong with request parameters. Check response message to get more information."
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "x-operationId": "GetFilesList"
+      },
+      "put": {
+        "tags": [
+          "Folder"
+        ],
+        "summary": "Create the folder",
+        "operationId": "CreateFolder",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "storageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Storage name"
+          },
+          {
+            "type": "string",
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "description": "Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns 200 if the create is successful."
+          },
+          "401": {
+            "description": "Authorization token is invalid or expired."
+          },
+          "400": {
+            "description": "Storage not found or it is not associated with the application."
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "x-operationId": "CreateFolder"
+      },
+      "delete": {
+        "tags": [
+          "Folder"
+        ],
+        "summary": "Delete folder",
+        "operationId": "DeleteFolder",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "storageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Storage name"
+          },
+          {
+            "type": "string",
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "description": "Folder path e.g. /Folder1s"
+          },
+          {
+            "type": "boolean",
+            "name": "recursive",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Enable to delete folders, subfolders and files",
+            "default": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns 200 if the delete is successful."
+          },
+          "401": {
+            "description": "Authorization token is invalid or expired"
+          },
+          "400": {
+            "description": "Something wrong with request parameters. Check response message to get more information."
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "x-operationId": "DeleteFolder"
+      }
+    },
+    "/assembly/storage/folder/copy/{srcPath}": {
+      "put": {
+        "tags": [
+          "Folder"
+        ],
+        "summary": "Copy folder",
+        "operationId": "CopyFolder",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "destPath",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Destination folder path e.g. '/dst'"
+          },
+          {
+            "type": "string",
+            "name": "srcPath",
+            "in": "path",
+            "required": true,
+            "description": "Source folder path e.g. /Folder1"
+          },
+          {
+            "type": "string",
+            "name": "srcStorageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Source storage name"
+          },
+          {
+            "type": "string",
+            "name": "destStorageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Destination storage name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns 200 if the copy is successful."
+          },
+          "401": {
+            "description": "Authorization token is invalid or expired"
+          },
+          "400": {
+            "description": "Something wrong with request parameters. Check response message to get more information."
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "x-operationId": "CopyFolder"
+      }
+    },
+    "/assembly/storage/folder/move/{srcPath}": {
+      "put": {
+        "tags": [
+          "Folder"
+        ],
+        "summary": "Move folder",
+        "operationId": "MoveFolder",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "destPath",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Destination folder path to move to e.g '/dst'"
+          },
+          {
+            "type": "string",
+            "name": "srcPath",
+            "in": "path",
+            "required": true,
+            "description": "Source folder path e.g. /Folder1"
+          },
+          {
+            "type": "string",
+            "name": "srcStorageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Source storage name"
+          },
+          {
+            "type": "string",
+            "name": "destStorageName",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Destination storage name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns 200 if the move is successful."
+          },
+          "401": {
+            "description": "Authorization token is invalid or expired."
+          },
+          "400": {
+            "description": "Something wrong with request parameters. Check response message to get more information."
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ],
+        "x-operationId": "MoveFolder"
+      }
+    }
+  },
+  "definitions": {
+    "FileFormatsResponse": {
+      "type": "null",
+      "description": "Response with file formats.",
+      "additionalProperties": false,
+      "required": [
+        "Code"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/AssemblyResponse"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "FileFormats": {
+              "description": "Gets or sets file formats.",
+              "$ref": "#/definitions/FormatCollection"
+            },
+            "Code": {
+              "type": "integer",
+              "description": "Gets response status code.",
+              "format": "int32"
+            },
+            "Status": {
+              "type": "string",
+              "description": "Gets or sets response status."
+            }
+          }
+        }
+      ]
+    },
+    "FormatCollection": {
+      "type": "object",
+      "description": "Describes object which contains list of supported file formats.",
+      "additionalProperties": false,
+      "properties": {
+        "Formats": {
+          "type": "array",
+          "description": "Gets or sets supported file formats.",
+          "items": {
+            "$ref": "#/definitions/Format"
+          }
+        }
+      }
+    },
+    "Format": {
+      "type": "object",
+      "description": "Format description.",
+      "additionalProperties": false,
+      "properties": {
+        "FileFormat": {
+          "type": "string",
+          "description": "Gets or sets file format."
+        },
+        "Extension": {
+          "type": "string",
+          "description": "Gets or sets file extension."
+        }
+      }
+    },
+    "AssemblyResponse": {
+      "type": "object",
+      "discriminator": "Type",
+      "description": "Base class for all responses.",
+      "additionalProperties": false,
+      "properties": {
+        "RequestId": {
+          "type": "string",
+          "description": "Gets or sets request Id."
+        }
+      }
+    },
+    "AssemblyApiErrorResponse": {
+      "type": "null",
+      "description": "Error response for exceptions.\n            ",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/AssemblyResponse"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Error": {
+              "description": "Gets or sets error.",
+              "$ref": "#/definitions/ApiError"
+            }
+          }
+        }
+      ]
+    },
+    "ApiError": {
+      "type": "object",
+      "description": "Error class.\n            ",
+      "additionalProperties": false,
+      "properties": {
+        "Code": {
+          "type": "string",
+          "description": "Gets or sets api error code."
+        },
+        "Message": {
+          "type": "string",
+          "description": "Gets or sets error message."
+        },
+        "Description": {
+          "type": "string",
+          "description": "Gets or sets error description."
+        },
+        "DateTime": {
+          "type": "string",
+          "description": "Gets or sets server datetime.",
+          "format": "date-time"
+        },
+        "InnerError": {
+          "description": "Gets or sets inner error.",
+          "$ref": "#/definitions/ApiError"
+        }
+      }
+    },
+    "AssembleOptions": {
+      "type": "object",
+      "description": "Assemble options data which is using for specifying assemble options, like template name, save format, report data and etc.",
+      "additionalProperties": false,
+      "properties": {
+        "TemplateFileInfo": {
+          "description": "Gets or sets the template name which is located on storage.",
+          "$ref": "#/definitions/TemplateFileInfo"
+        },
+        "SaveFormat": {
+          "type": "string",
+          "description": "Gets or sets a save format for assembled document."
+        },
+        "ReportData": {
+          "type": "string",
+          "description": "Gets or sets a data for report."
+        },
+        "OutputPath": {
+          "type": "string",
+          "description": "Gets or sets result path of a built document."
+        }
+      }
+    },
+    "TemplateFileInfo": {
+      "type": "object",
+      "description": "TemplateFileInfo dto.\n            ",
+      "additionalProperties": false,
+      "properties": {
+        "FilePath": {
+          "type": "string",
+          "description": "Gets or sets path to file.\n            "
+        },
+        "StorageName": {
+          "type": "string",
+          "description": "Gets or sets the name of storage.\n            "
+        },
+        "VersionId": {
+          "type": "string",
+          "description": "Gets or sets the name of storage.\n            "
+        },
+        "Password": {
+          "type": "string",
+          "description": "Gets or sets the password.\n            "
+        }
+      }
+    },
+    "FileResponse": {
+      "type": "object",
+      "description": "The empty type used as a flag.\n            ",
+      "additionalProperties": false
+    },
+    "FilesUploadResult": {
+      "type": "object",
+      "description": "File upload result",
+      "additionalProperties": false,
+      "properties": {
+        "Uploaded": {
+          "type": "array",
+          "description": "List of uploaded file names",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Errors": {
+          "type": "array",
+          "description": "List of errors.",
+          "items": {
+            "$ref": "#/definitions/Error"
+          }
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "description": "Error",
+      "additionalProperties": false,
+      "properties": {
+        "Code": {
+          "type": "string",
+          "description": "Code\n            "
+        },
+        "Message": {
+          "type": "string",
+          "description": "Message\n            "
+        },
+        "Description": {
+          "type": "string",
+          "description": "Description\n            "
+        },
+        "InnerError": {
+          "description": "Inner Error\n            ",
+          "$ref": "#/definitions/ErrorDetails"
+        }
+      }
+    },
+    "ErrorDetails": {
+      "type": "object",
+      "description": "The error details",
+      "additionalProperties": false,
+      "required": [
+        "ErrorDateTime"
+      ],
+      "properties": {
+        "RequestId": {
+          "type": "string",
+          "description": "The request id."
+        },
+        "ErrorDateTime": {
+          "type": "string",
+          "description": "Error datetime.",
+          "format": "date-time"
+        }
+      }
+    },
+    "FilesList": {
+      "type": "object",
+      "description": "Files list",
+      "additionalProperties": false,
+      "properties": {
+        "Value": {
+          "type": "array",
+          "description": "Files and folders contained by folder .",
+          "items": {
+            "$ref": "#/definitions/StorageFile"
+          }
+        }
+      }
+    },
+    "StorageFile": {
+      "type": "object",
+      "description": "File or folder information",
+      "additionalProperties": false,
+      "required": [
+        "IsFolder",
+        "Size"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "File or folder name."
+        },
+        "IsFolder": {
+          "type": "boolean",
+          "description": "True if it is a folder."
+        },
+        "ModifiedDate": {
+          "type": "string",
+          "description": "File or folder last modified .",
+          "format": "date-time"
+        },
+        "Size": {
+          "type": "integer",
+          "description": "File or folder size.",
+          "format": "int64"
+        },
+        "Path": {
+          "type": "string",
+          "description": "File or folder path."
+        }
+      }
+    }
+  },
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "JWT": {
+      "type": "oauth2",
+      "flow": "application",
+      "tokenUrl": "https://api.groupdocs.cloud/connect/token"
+    }
+  }
+}
