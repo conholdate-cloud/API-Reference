@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conholdate Cloud API Reference</title>
+    <title>Conholdate Cloud API Reference - File Format and Document Processing APIs</title>
 	<meta name="description" content="Comprehensive API reference for Conholdate Cloud file format and document processing APIs. Access documentation for Aspose.Cloud and GroupDocs.Cloud APIs for all major document formats.">
 <script>
     // Define dataLayer and the gtag function.
@@ -36,230 +36,103 @@
 <!-- Additional meta for better compatibility -->
 <meta name="theme-color" content="#667eea">
 <meta name="msapplication-TileColor" content="#667eea">
+    
+    <!-- Main Site CSS -->
+    <link rel="stylesheet" href="./main.min.css">
+    
+    <!-- Custom header styling for reference page -->
     <style>
-        * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+	.section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+			margin-left: 1rem;
+			margin-right: 1rem;
+        }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #f8f9fa;
-  background-size: cover;
-  background-attachment: fixed;
-  min-height: 100vh;
-}
+        .section-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px 20px 20px;
-}
+        .aspose-logo {
+            background-image: url('./aspose-logo.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: transparent;
+        }
 
-.header {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 50px;
-  padding: 100px 20px;
-  background: url(./conholdate_cloud_API_background_optimized.jpg) center center / cover no-repeat;
-  position: relative;
-  overflow: hidden;
-}
+        .groupdocs-logo {
+            background-image: url('./groupdocs-logo.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: transparent;
+        }
 
-.header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cdefs%3E%3Cpattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3Ccircle cx='150' cy='150' r='2' fill='rgba(255,255,255,0.2)'/%3E%3Ccircle cx='850' cy='200' r='1.5' fill='rgba(255,255,255,0.15)'/%3E%3Ccircle cx='300' cy='800' r='2.5' fill='rgba(255,255,255,0.1)'/%3E%3Ccircle cx='700' cy='600' r='2' fill='rgba(255,255,255,0.2)'/%3E%3Ccircle cx='100' cy='700' r='1.8' fill='rgba(255,255,255,0.15)'/%3E%3Ccircle cx='900' cy='150' r='2.2' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E") repeat;
-  background-size: cover;
-  backdrop-filter: blur(2px);
-  pointer-events: none;
-  z-index: 0;
-}
+        .section-title {
+            flex: 1;
+        }
 
-.header h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 15px;
-  position: relative;
-  z-index: 1;
-  text-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.6),
-    0 4px 8px rgba(0, 0, 0, 0.4);
-}
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+            color: #30638e;
+        }
 
-.header p {
-  font-size: 1.4rem;
-  color: #fff;
-  margin-bottom: 0;
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  text-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.5),
-    0 2px 6px rgba(0, 0, 0, 0.3);
-}
+        .section-title p {
+            color: #666;
+            font-size: 1rem;
+            margin: 0;
+        }
 
-.section {
-  margin-bottom: 50px;
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.section-logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 12px;
-  margin-right: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: white;
-  font-size: 1.2rem;
-}
-
-.aspose-logo {
-  background-image: url('./aspose-logo.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: transparent;
-}
-
-.groupdocs-logo {
-  background-image: url('./groupdocs-logo.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: transparent;
-}
-
-.section-title {
-  flex: 1;
-}
-
-.section-title h2 {
-  font-size: 2rem;
-  margin-bottom: 5px;
-}
-
-.section-title p {
-  color: #666;
-  font-size: 1rem;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.product-card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.product-name {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.product-description {
-  color: #666;
-  font-size: 0.95rem;
-  margin-bottom: 15px;
-  line-height: 1.5;
-}
-
-.product-links {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.product-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 16px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  transition: all 0.3s ease;
-}
-
-.product-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
-
-.footer {
-  text-align: center;
-  margin-top: 50px;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
-  color: #666;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .header {
-    padding: 60px 20px;
-  }
-
-  .header h1 {
-    font-size: 2.5rem;
-  }
-
-  .header p {
-    font-size: 1.1rem;
-  }
-
-  .section-header {
-    flex-direction: column;
+		.section-title h2 {
+			margin: 0px;
+		}
+.custom-header {
     text-align: center;
-  }
-
-  .section-logo {
-    margin-right: 0;
-    margin-bottom: 15px;
-  }
-
-  .products-grid {
-    grid-template-columns: 1fr;
-  }
+    padding: 40px 20px;
+    margin-bottom: 30px;
 }
 
+.custom-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #30638e;
+    margin-bottom: 10px;
+}
 
+.custom-header p {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .custom-header {
+        padding: 30px 15px;
+    }
+    
+    .custom-header h1 {
+        font-size: 2rem;
+    }
+    
+    .custom-header p {
+        font-size: 1rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -274,273 +147,422 @@ body {
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=G-D3NF7DL5PL"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Google Tag Manager (noscript) -->
-  <header class="header">
-            <h1>Conholdate Cloud API Reference</h1>
-            <p>Comprehensive File Format and Document Processing API Reference Documentation</p>
-        </header>
-    <div class="container">
+  
 
-        <section class="section">
-            <div class="section-header">
-                <div class="section-logo aspose-logo"></div>
-                <div class="section-title">
-                    <h2>Aspose.Cloud APIs</h2>
-                    <p>Comprehensive File Format APIs Reference Documentation</p>
-                </div>
+  <!-- Main Content Container -->
+  <div class="container-fluid td-default td-outer set-min-height">
+    <main role="main" class="td-main">
+
+      <!-- Aspose.Cloud APIs Section -->
+      <a id="td-block-0" class="td-offset-anchor"></a>
+      <section class="row product-section td-box td-box--white td-box--gradient td-box--height-auto">
+        <div class="col">
+          <div class="section-header">
+            <div class="section-logo aspose-logo"></div>
+            <div class="section-title">
+              <h2>Aspose.Cloud APIs</h2>
+              <p>Comprehensive File Format APIs Reference Documentation</p>
             </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-name">Aspose.Words Cloud</div>
-                    <div class="product-description">Process Microsoft Word documents, DOC, DOCX, RTF, and other text formats in the cloud</div>
-                    <div class="product-links">
-                        <a href="./aspose/words/" class="product-link">API Reference</a>
-                    </div>
+          </div>
+          
+          <div class="row product-row">
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/words/"><strong>Aspose.Words Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Process Microsoft Word documents, DOC, DOCX, RTF, and other text formats in the cloud</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/words/">API Reference</a>
+                  </div>
                 </div>
-
-                <div class="product-card">
-                    <div class="product-name">Aspose.PDF Cloud</div>
-                    <div class="product-description">Create, edit, and manipulate PDF documents with advanced features and conversion capabilities</div>
-                    <div class="product-links">
-                        <a href="./aspose/pdf/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">Aspose.Cells Cloud</div>
-                    <div class="product-description">Work with Excel spreadsheets, XLS, XLSX, CSV, and other spreadsheet formats</div>
-                    <div class="product-links">
-                        <a href="./aspose/cells/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">Aspose.Email Cloud</div>
-                    <div class="product-description">Handle email processing, MSG, EML, and various email format operations</div>
-                    <div class="product-links">
-                        <a href="./aspose/email/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">Aspose.Slides Cloud</div>
-                    <div class="product-description">Create and manipulate PowerPoint presentations, PPT, PPTX formats</div>
-                    <div class="product-links">
-                        <a href="./aspose/slides/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">Aspose.Imaging Cloud</div>
-                    <div class="product-description">Process and manipulate images in various formats with advanced imaging operations</div>
-                    <div class="product-links">
-                        <a href="./aspose/imaging/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">Aspose.BarCode Cloud</div>
-                    <div class="product-description">Generate and recognize barcodes in multiple formats and symbologies</div>
-                    <div class="product-links">
-                        <a href="./aspose/barcode/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">Aspose.Diagram Cloud</div>
-                    <div class="product-description">Work with Microsoft Visio diagrams, VSD, VSDX, and other diagram formats</div>
-                    <div class="product-links">
-                        <a href="./aspose/diagram/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">Aspose.Tasks Cloud</div>
-                    <div class="product-description">Manage Microsoft Project files, MPP, and other project management formats</div>
-                    <div class="product-links">
-                        <a href="./aspose/tasks/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">Aspose.OCR Cloud</div>
-                    <div class="product-description">Optical Character Recognition for extracting text from images and scanned documents</div>
-                    <div class="product-links">
-                        <a href="./aspose/ocr/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">Aspose.CAD Cloud</div>
-                    <div class="product-description">Process CAD drawings, DWG, DXF, and other computer-aided design formats</div>
-                    <div class="product-links">
-                        <a href="./aspose/cad/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">Aspose.HTML Cloud</div>
-                    <div class="product-description">Manipulate HTML documents, convert between formats, and extract content</div>
-                    <div class="product-links">
-                        <a href="./aspose/html/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">Aspose.OMR Cloud</div>
-                    <div class="product-description">Optical Mark Recognition for processing surveys, tests, and forms</div>
-                    <div class="product-links">
-                        <a href="./aspose/omr/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">Aspose.3D Cloud</div>
-                    <div class="product-description">Process 3D files, manipulate 3D scenes, and convert between 3D formats</div>
-                    <div class="product-links">
-                        <a href="./aspose/3d/" class="product-link">API Reference</a>
-                    </div>
-                </div>
+              </div>
             </div>
-        </section>
 
-        <section class="section">
-            <div class="section-header">
-                <div class="section-logo groupdocs-logo"></div>
-                <div class="section-title">
-                    <h2>GroupDocs.Cloud APIs</h2>
-                    <p>Comprehensive Document Processing and Automation APIs Documentation</p>
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/pdf/"><strong>Aspose.PDF Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Create, edit, and manipulate PDF documents with advanced features and conversion capabilities</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/pdf/">API Reference</a>
+                  </div>
                 </div>
+              </div>
             </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Viewer Cloud</div>
-                    <div class="product-description">Display documents in various formats without requiring the original software</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/viewer/" class="product-link">API Reference</a>
-                    </div>
-                </div>
 
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Annotation Cloud</div>
-                    <div class="product-description">Add annotations, comments, and markup to documents collaboratively</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/annotation/" class="product-link">API Reference</a>
-                    </div>
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/cells/"><strong>Aspose.Cells Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Work with Excel spreadsheets, XLS, XLSX, CSV, and other spreadsheet formats</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/cells/">API Reference</a>
+                  </div>
                 </div>
-
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Conversion Cloud</div>
-                    <div class="product-description">Convert documents between different formats with high fidelity</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/conversion/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Comparison Cloud</div>
-                    <div class="product-description">Compare documents and highlight differences between versions</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/comparison/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Signature Cloud</div>
-                    <div class="product-description">Add digital signatures, stamps, and electronic signatures to documents</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/signature/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Assembly Cloud</div>
-                    <div class="product-description">Generate documents from templates with dynamic data binding</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/assembly/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Metadata Cloud</div>
-                    <div class="product-description">Extract, edit, and manage metadata information from documents</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/metadata/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Parser Cloud</div>
-                    <div class="product-description">Extract text, images, and metadata from various document formats</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/parser/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Watermark Cloud</div>
-                    <div class="product-description">Add, search, and remove watermarks from documents and images</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/watermark/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Editor Cloud</div>
-                    <div class="product-description">Edit documents in various formats using HTML-based editing</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/editor/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Merger Cloud</div>
-                    <div class="product-description">Merge, split, and manipulate document pages and structures</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/merger/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Classification Cloud</div>
-                    <div class="product-description">Classify documents and text using machine learning algorithms</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/classification/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Translation Cloud</div>
-                    <div class="product-description">Translate documents and text content between multiple languages</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/translation/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-name">GroupDocs.Rewriter Cloud</div>
-                    <div class="product-description">Rewrite and paraphrase text content while maintaining meaning</div>
-                    <div class="product-links">
-                        <a href="./groupdocs/rewriter/" class="product-link">API Reference</a>
-                    </div>
-                </div>
-            </div></div>
-                 
-                </div>
+              </div>
             </div>
-        </section>
-    </div>
 
-    <script>
-	(function(i, s, o, g, r, a, m) {i['ContainerizeMenuObject'] = r; i[r] = i[r] || function() {(i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date(); a = s.createElement(o),m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.append(a)})(window, document, 'script', 'https://menu-new.containerize.com/scripts/engine.min.js?v=1.0.1', 'conholdatecloud-en');
-        // Add smooth scrolling for better UX
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/email/"><strong>Aspose.Email Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Handle email processing, MSG, EML, and various email format operations</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/email/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/slides/"><strong>Aspose.Slides Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Create and manipulate PowerPoint presentations, PPT, PPTX formats</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/slides/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/imaging/"><strong>Aspose.Imaging Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Process and manipulate images in various formats with advanced imaging operations</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/imaging/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/barcode/"><strong>Aspose.BarCode Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Generate and recognize barcodes in multiple formats and symbologies</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/barcode/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/diagram/"><strong>Aspose.Diagram Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Work with Microsoft Visio diagrams, VSD, VSDX, and other diagram formats</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/diagram/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/tasks/"><strong>Aspose.Tasks Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Manage Microsoft Project files, MPP, and other project management formats</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/tasks/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/ocr/"><strong>Aspose.OCR Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Optical Character Recognition for extracting text from images and scanned documents</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/ocr/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/cad/"><strong>Aspose.CAD Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Process CAD drawings, DWG, DXF, and other computer-aided design formats</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/cad/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/html/"><strong>Aspose.HTML Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Manipulate HTML documents, convert between formats, and extract content</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/html/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/omr/"><strong>Aspose.OMR Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Optical Mark Recognition for processing surveys, tests, and forms</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/omr/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./aspose/3d/"><strong>Aspose.3D Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Process 3D files, manipulate 3D scenes, and convert between 3D formats</p>
+                    <a class="product-item btn-outline-primary" href="./aspose/3d/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GroupDocs.Cloud APIs Section -->
+      <a id="td-block-1" class="td-offset-anchor"></a>
+      <section class="row product-section td-box td-box--white td-box--gradient td-box--height-auto">
+        <div class="col">
+          <div class="section-header">
+            <div class="section-logo groupdocs-logo"></div>
+            <div class="section-title">
+              <h2>GroupDocs.Cloud APIs</h2>
+              <p>Comprehensive Document Processing and Automation APIs Documentation</p>
+            </div>
+          </div>
+          
+          <div class="row product-row">
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/viewer/"><strong>GroupDocs.Viewer Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Display documents in various formats without requiring the original software</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/viewer/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/annotation/"><strong>GroupDocs.Annotation Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Add annotations, comments, and markup to documents collaboratively</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/annotation/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/conversion/"><strong>GroupDocs.Conversion Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Convert documents between different formats with high fidelity</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/conversion/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/comparison/"><strong>GroupDocs.Comparison Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Compare documents and highlight differences between versions</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/comparison/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/signature/"><strong>GroupDocs.Signature Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Add digital signatures, stamps, and electronic signatures to documents</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/signature/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/assembly/"><strong>GroupDocs.Assembly Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Generate documents from templates with dynamic data binding</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/assembly/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/metadata/"><strong>GroupDocs.Metadata Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Extract, edit, and manage metadata information from documents</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/metadata/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/parser/"><strong>GroupDocs.Parser Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Extract text, images, and metadata from various document formats</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/parser/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/watermark/"><strong>GroupDocs.Watermark Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Add, search, and remove watermarks from documents and images</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/watermark/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/editor/"><strong>GroupDocs.Editor Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Edit documents in various formats using HTML-based editing</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/editor/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/merger/"><strong>GroupDocs.Merger Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Merge, split, and manipulate document pages and structures</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/merger/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/classification/"><strong>GroupDocs.Classification Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Classify documents and text using machine learning algorithms</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/classification/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/translation/"><strong>GroupDocs.Translation Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Translate documents and text content between multiple languages</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/translation/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-element col-lg-4 col-sm-12 col-md-6 col-xs-12">
+              <div class="card">
+                <div class="card-body" style="text-align: center;">
+                  <a class="card-title" href="./groupdocs/rewriter/"><strong>GroupDocs.Rewriter Cloud</strong></a>
+                  <p style="text-align: center;">API Reference</p>
+                  <div class="card-text mb-0" style="text-align: left;">
+                    <p>Rewrite and paraphrase text content while maintaining meaning</p>
+                    <a class="product-item btn-outline-primary" href="./groupdocs/rewriter/">API Reference</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+  (function(i, s, o, g, r, a, m) {i['ContainerizeMenuObject'] = r; i[r] = i[r] || function() {(i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date(); a = s.createElement(o),m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.append(a)})(window, document, 'script', 'https://menu-new.containerize.com/scripts/engine.min.js?v=1.0.1', 'conholdatecloud-en');
+    // Add smooth scrolling for better UX
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
-    </script>
+    });
+  </script>
 </body>
 </html>
